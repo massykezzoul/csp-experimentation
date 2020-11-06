@@ -63,7 +63,7 @@ public class App {
         if (!benchmark.substring(benchmark.length() - 1).equals("/"))
             benchmark += "/";
         
-        int durete_min = 0, durete_max = 99;
+        int durete_min = 0, durete_max = 98;
         int instance_min = 1, instance_max = 10;
 
         System.out.println("durete temps result");

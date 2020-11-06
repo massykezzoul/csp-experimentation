@@ -36,7 +36,7 @@ def cspgen(n, d, c, t, file):
 def genall():
     nombre_instance = 10
     for t in range(tmax, tmin - 1, -3): 
-        dur = round(durete(d,t) * 100)
+        dur = int(durete(d,t) * 100)
         for i in range(nombre_instance): 
             file_name = "d{}-i{}.txt".format(dur, i+1)
             if cspgen(n, d, c, t, file_name):
