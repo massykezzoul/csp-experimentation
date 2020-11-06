@@ -46,11 +46,14 @@ public class CSP {
 		return sol;
 	}
 
-	public boolean searchSolutionFC() {
+	public Assignment searchSolutionFC() {
 		cptr = 1; // compteur de noeuds exploré
 
 		this.assignment = new Assignment();
-		return forwardCheking();
+		if (forwardCheking())
+			return this.assignment;
+		else
+			return null;
 	}
 
 	/*
@@ -88,7 +91,7 @@ public class CSP {
 
 	private boolean forwardCheking() {
 		if (this.assignment.getVars().size() == network.getVarNumber()) {
-			System.out.println(assignment);
+			//System.out.println(assignment);
 			return true;
 		} // solution trouvé
 		String x = this.chooseVar();

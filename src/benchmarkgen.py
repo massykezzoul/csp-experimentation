@@ -2,15 +2,15 @@
 
 import sys
 import os
-import subprocess
+
 """
     usage : python3 benchmarkgen executable chemin_vers_sortie
 """
 
 n = 35 # nombre de variables
 d = 17 # taille des domaines
-c = 249 # nombre de contrainte
-tmax, tmin = 211, 178# nombre de tuples (reduire de 3 à chaque étape jusqu'a 178)
+c = 249 # nombre de contrainte   
+tmax, tmin = 288, 1# nombre de tuples (reduire de 3 à chaque étape jusqu'a 178)
 
 if len(sys.argv) != 3 :
     print("usage : python3 benchmarkgen executable chemin_vers_sortie")
@@ -19,8 +19,6 @@ if len(sys.argv) != 3 :
     sys.exit(1)
 
 executable = sys.argv[1]
-if executable[-1] == '/':
-    executable = executable[:-1]
 
 dir_return = sys.argv[2]
 if dir_return[-1] == '/':
@@ -40,7 +38,7 @@ def genall():
     for t in range(tmax, tmin - 1, -3): 
         dur = round(durete(d,t) * 100)
         for i in range(nombre_instance): 
-            file_name = "d-{}-i{}.txt".format(dur, i+1)
+            file_name = "d{}-i{}.txt".format(dur, i+1)
             if cspgen(n, d, c, t, file_name):
                 print("Dureté {}: {}/{}".format(dur, i+1, nombre_instance))
             else:
