@@ -129,15 +129,26 @@ Il est demandé de réaliser au moins une des optimisations suivantes :
 
 Le projet est suivi d'un travail d'évaluation complet des effets des différentes optimisations.
 
+
 \section {Construction du benchmark}
 On a commencé par réaliser un script Python, qui ne permet de construire un benchmark avec des valeurs  de (n,c,d,t) différentes, ce qui veut dire, notre script Python utilise le csp generateur pour generer 10 instance de Networ pour un  niveau de dureté (1--100) en les stockant dans des fichiers sous un format bien précis(ex: d1-I7.txt), pour pouvoir aprés automatiser la tache d'execution pour notre APP java. 
 \subsection{}
 
 \section{Implementation des optimisations}
+Dans notre cas on a pu réaliser deux optimisations : 
+\subsection{Forward Cheking}
+
+On a réalisé l'implémentation de l'algorithme Forward Cheking, pour pouvoir remplacer backtrack.
+\subsubsection{Resultats du Forward Cheking }
+On a pu constaté en variant les differents Valeur pour generer un réseau de contrainte aléatoire et sur un niveau de dureté de 1 à 100. L'algo du forward cheking permet en premier lieu de resoudre les réseaux de grande taille en fonction de (n,c,d,t).
+
+Concernant le graph obtenu pour une execution de réseaux de contrainte pour des niveaux de dureté de 1 à 100
 
 \subsection{les étapes d'exécution : }
 
-\section{Experimentation des optimisation réalisées}
+
+
+
 
 \subsection{}
 
