@@ -1,0 +1,8 @@
+**.aux
+**.tmp
+**.class
+
+rapport/**.aux
+rapport/**.log
+rapport/**.out
+rapport/**.toc
