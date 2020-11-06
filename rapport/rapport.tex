@@ -1,4 +1,4 @@
-\documentclass[oneside,13pt,a4paper]{report}
+\documentclass[oneside,13pt,a4paper]{article}
 
 % Chargement d'extensions
 \usepackage[utf8]{inputenc}
@@ -14,16 +14,13 @@
     colorlinks=true,
     linkcolor=black,
 	urlcolor=blue,
-	pdftitle={Rapport de projet Claims checking},
+	pdftitle={Rendu},
 	bookmarks=true,
 }
 
 % Bout de code
 \usepackage{listings}
 \usepackage{color}
-%\lst{
-
-%}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -43,7 +40,7 @@
   frame=single,	                   % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   keywordstyle=\color{blue},       % keyword style
-  language=C++,                    % the language of the code
+  %language=C++,                    % the language of the code
   morekeywords={*,...},            % if you want to add more keywords to the set
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
   numbersep=5pt,                   % how far the line-numbers are from the code
@@ -67,7 +64,7 @@
 \addto\captionsfrench{\def\figurename{Schéma}}
 
 % Informations le titre, le(s) auteur(s), la date
-\title{Claims checking}
+\title{}
 \author{
     Chakib ELHOUITI \and
     Massili KEZZOUL \and
@@ -80,29 +77,20 @@
 \begin{titlepage}
 	\centering
 	{\scshape\LARGE Universite de Montpellier\par}
-	{\scshape\Large Rapport de projet\par}
+	{\scshape\Large\par}
 	\vspace{1.5cm}
-	{\huge\bfseries Mise en place des optimisation au resolveur CSP\par}
+	{\huge\bfseries Rapport Csp Optimisation\par}
 	\vspace{2cm}
 	{\Large\itshape
+		
 		Chakib ELHOUITI \\
-		Massili KEZZOUL
+		Massili KEZZOUL \\
+		
 		\par}
-
-	\vspace{1.5cm}
 
 	\vspace{2cm}
 
 	\begin{figure}[h]
-		\begin{minipage}[c]{.46\linewidth}
-			\centering
-			\includegraphics[width=1\textwidth]{img/univ-montpellier.png}
-		\end{minipage}
-		\hfill%
-		\begin{minipage}[c]{.46\linewidth}
-			\centering
-			\includegraphics[width=1\textwidth]{img/fds.png}
-		\end{minipage}
 	\end{figure}
 
 	\par\vspace{1cm}
@@ -130,67 +118,26 @@
 % Organisation
 % ------------------------------------- %
 
-\chapter{Organisation du projet}
-\section{Méthodes d’organisation}
+\section{Introduction}
+Ce projet s'attache à mettre en place des optimisations au resolveur de CSP.
 
-\section{Découpage du projet}
+Il est demandé de réaliser au moins une des optimisations suivantes : 
+- heuristique d'assignation des variables, 
+- test de viol de contraintes même si toutes les variables de la contrainte ne sont pas assignées, 
+- arc-consistance, 
+- forward checking...
 
-\subsection{Phase de modélisation}
+Le projet est suivi d'un travail d'évaluation complet des effets des différentes optimisations.
 
-\subsection{Phase de développement}
-
-\subsection{Finalisation du projet}
-
-\section{Outils de collaboration}
-\chapter{Introduction au sujet}
-
-\section{Fact-checking}
-
-\subsection{Présentation du principe de fact-checking}
-\subsection{Présentation de ClaimsKG}
-
-\subsection{Travail à réaliser}
-\section{Technologies utilisées}
-
-\chapter{Conception et implémentation du projet}
-
-\section{Conception et Modélisation}
-
-\subsection{Analyse de ClaimKG}
+\section{Construction du benchmark}
 
 
-\subsubsection*{La structure}
+\section{Implementation des optimisations}
 
-\subsubsection*{L'implémentation}
-\subsection{Conception}
+\subsection{les étapes d'exécution : }
 
-\subsubsection{Diagrammes UML}
-\subsubsection*{Représentation des données}
+\section{Experimentation des optimisation réalisées}
 
-\section{Implémentation}
-\chapter{Analyse des résultats}
+\subsection{}
 
-\section{Résultats}
-\section{Problèmes rencotrés}
-
-\chapter{Bilan et conclusions}
-
-\section{Perspective}
-\section{Conclusion}
-% ------------------------------------- %
-% Annexes
-% ------------------------------------- %
-
-\appendix
-\chapter{Annexe}
-\section{Code de la méthode \textit{extract\_claim\_and\_review}}
-\section{Code de la traduction}
-\begin{figure}[h]
-	\centering
-	\begin{minipage}[c]{1.0\linewidth}
-		\caption{Code traduction}
-	\end{minipage}
-\end{figure}
-\section{Code de la méthode \textit{retrieve\_urls} }
-\section{Code de la méthode \textit{extract\_links} }
 \end{document}

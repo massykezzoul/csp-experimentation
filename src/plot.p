@@ -1,5 +1,6 @@
 # Gnuplot script file for plotting data in file "plot.dat"
 # This file is called   plot.p
+# The output file is callde "graph.png"
 set terminal pngcairo
 set output "graph.png"
 set autoscale                        # scale axes automatically

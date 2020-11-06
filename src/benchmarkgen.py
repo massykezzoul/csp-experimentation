@@ -27,6 +27,9 @@ if dir_return[-1] == '/':
 def durete(d, t):
     return ((d*d) - t)/(d*d)
 
+def tuple(d, durete):
+    return d*d*(1 - durete)
+
 def cspgen(n, d, c, t, file):
     # Génère une instance de CSP
     cmd = "./{} {} {} {} {} 1 > ./{}/{} 2> /dev/null".format(executable, n, d, c, t, dir_return, file)
