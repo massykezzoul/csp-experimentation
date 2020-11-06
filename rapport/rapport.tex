@@ -88,9 +88,18 @@
 		
 		\par}
 
-	\vspace{2cm}
+		\vspace{2cm}
 
 	\begin{figure}[h]
+		\begin{minipage}[c]{.46\linewidth}
+			\centering
+			\includegraphics[width=1\textwidth]{img/univ-montpellier.png}
+		\end{minipage}
+		\hfill%
+		\begin{minipage}[c]{.46\linewidth}
+			\centering
+			\includegraphics[width=1\textwidth]{img/fds.png}
+		\end{minipage}
 	\end{figure}
 
 	\par\vspace{1cm}
@@ -104,13 +113,14 @@
 
 
 
+
 % ------------------------------------- %
 % Introduction
 % ------------------------------------- %
 
 \parskip=5pt
 
-\tableofcontents
+
 
 % Espacement entre les paragraphes
 \parskip=5pt
@@ -142,14 +152,40 @@ On a réalisé l'implémentation de l'algorithme Forward Cheking, pour pouvoir r
 \subsubsection{Resultats du Forward Cheking }
 On a pu constaté en variant les differents Valeur pour generer un réseau de contrainte aléatoire et sur un niveau de dureté de 1 à 100. L'algo du forward cheking permet en premier lieu de resoudre les réseaux de grande taille en fonction de (n,c,d,t).
 
-Concernant le graph obtenu pour une execution de réseaux de contrainte pour des niveaux de dureté de 1 à 100
+Concernant le graphe obtenu pour une execution de réseaux de contrainte pour des niveaux de dureté de 1 à 100, on a calculé le temps moyen de 5 execution par instance, on a obtenu : un graph avec un temps élevé, c'est du à l'algo du forward cheking (plus de tuples avec plus de contraintes = plus de temps). Concernant la phase de transition, on remarque bien un pic pour le temps moyen par dureté
+Ce qui montre le graphe  suivant : (n = 35, c=249, d = 17 et le t est calculé)
 
-\subsection{les étapes d'exécution : }
-
-
-
+\includegraphics{img/FC.png}
 
 
-\subsection{}
+\subsection{L'heuristique MaxDegré}
+
+Pour cette heuristique, on a commencé par stocker une Hashmap (string,int) qui permet de stocker les variables du réseau avec leurs nombre d'occurences dans les contraintes (le degré), ensuite on tri cette HashMap par ordre décroissant et on choisi a chaque fois la variable qui n'est pas assignée avec le plus grand degré.
+\subsubsection{Resultats du maxDegré}
+Cette heuristique ne permet pas de résoudre des CSP avec de grande taille comme il le fait FC, mais permet bien de constater à travers un graphe le pic lors de la phase de transition.
+Elle reste toujours meilleure que le backtrack avec chooseVar sans aucune heuristique mais performante que le forward cheking.
+
+exemple de graphe : (n = 20, c=50 , d = 17)
+
+\includegraphics{img/backtrackMaxDegre.png}
+
+\subsection{Exécution des programmes}
+pour éxecuter le programme il suffit de :
+\begin{itemize}	
+	\item Ouvrire un terminal et se rendre au dossier src/
+	\item Ajouter les droits d'éxecutions au programme exec.sh
+	\item Puis l'éxecuter `exec.sh`
+\end{itemize}
+
+Le script génère un benchmark puis éxecuter l'algorithme de résolution sur ce dernier et gnuplot sur le resultat. Vous aurez donc à la fin un fichier graphe.png qui contient la courbe du temps d'éxecution ainsi que le tracé de transition de phase.
+
+\section{materiels et systèmes : }
+On a utilisé deux script dans notre implementation, le premier en Python pour générer les fichiers de tests et le deuxiéme en Shell pour automatiser l'exécution.
+\begin{itemize}
+	\item Processeur : Comme on est deux, on testé avec un I5 7ème génération et un I5 2ème génération, on a remarqué une petite différence sur le temps moyen mais les résultats étaient les mêmes.
+	\item Ram : 8GB et 4GB
+	\item OS : Pop'Os (20.04) c'est une distribution Linux similaire à ubuntu mais plus stable (à notre avis).
+	\item Compilateur : Javac 11.0.9
+\end{itemize}
 
 \end{document}
