@@ -1,8 +1,14 @@
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map.Entry;
 
 /**
  * Solveur : permet de résoudre un problème de contrainte par Backtrack : Calcul
@@ -14,6 +20,7 @@ public class CSP {
 	private Network network; // le réseau à résoudre
 	private List<Assignment> solutions; // les solutions du réseau (résultat de searchAllSolutions)
 	private Assignment assignment; // l'assignation courante (résultat de searchSolution)
+	private Map<String,Integer> nbOccu;
 	int cptr; // le compteur de noeuds explorés
 
 	/**
@@ -25,7 +32,22 @@ public class CSP {
 		network = r;
 		solutions = new ArrayList<Assignment>();
 		assignment = new Assignment();
-
+		nbOccu = new HashMap<String,Integer>();
+		for (Map.Entry mapentry : network.get().entrySet()) {
+			nbOccu.put((String) mapentry.getKey(),0);
+		 }
+		for (Constraint c : network.getConstraints()) {
+			for (String  s: c.getVars()) {
+				if (nbOccu.containsKey(s)) {
+					nbOccu.put(s, nbOccu.get(s)+1);
+				}
+				else
+				{
+					nbOccu.put(s, 1);
+				}
+			}
+		}
+		nbOccu = sortByComparator(nbOccu, false);
 	}
 
 	/**********************
@@ -73,7 +95,7 @@ public class CSP {
 		if (this.assignment.getVars().size() == network.getVarNumber())
 			return this.assignment; // solution trouvé
 
-		String x = this.chooseVar();
+		String x = this.chooseVarMaxDegre();
 
 		for (Object v : tri(network.getDom(x))) { // supposé trié
 			cptr += 1;
@@ -94,7 +116,7 @@ public class CSP {
 			//System.out.println(assignment);
 			return true;
 		} // solution trouvé
-		String x = this.chooseVar();
+		String x = this.chooseVarMaxDegre();
 		Map<String, List<Object>> oldDom = new HashMap<String, List<Object>>(network.get());
 		for (int i = 0 ; i < network.getDom(x).size(); i++) { // supposé trié
 			Object v = network.getDom(x).get(i);
@@ -167,6 +189,47 @@ public class CSP {
 		}
 		return null;
 	}
+
+	private String chooseVarMaxDegre(){
+		for (String var : nbOccu.keySet()) {
+			if (!this.assignment.getVars().contains(var))
+				return var;
+		}
+		return null;
+	}
+
+	private static Map<String, Integer> sortByComparator(Map<String, Integer> unsortMap, final boolean order)
+    {
+
+        List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(unsortMap.entrySet());
+
+        // Sorting the list based on values
+        Collections.sort(list, new Comparator<Entry<String, Integer>>()
+        {
+            public int compare(Entry<String, Integer> o1,
+                    Entry<String, Integer> o2)
+            {
+                if (order)
+                {
+                    return o1.getValue().compareTo(o2.getValue());
+                }
+                else
+                {
+                    return o2.getValue().compareTo(o1.getValue());
+
+                }
+            }
+        });
+
+        // Maintaining insertion order with the help of LinkedList
+        Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+        for (Entry<String, Integer> entry : list)
+        {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        return sortedMap;
+    }
 
 	/**
 	 * Fixe un ordre de prise en compte des valeurs d'un domaine
