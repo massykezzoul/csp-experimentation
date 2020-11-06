@@ -97,7 +97,13 @@ public class ConstraintExt extends Constraint{
 		if (res) verif += 1;
 		return res;
 	}
+
+	public boolean exist(List<Object> tuple)
+	{
+		return tuples.contains(tuple);	
+	}
 	
+
 	/* (non-Javadoc)
 	 * @see Constraint#toString()
 	 */

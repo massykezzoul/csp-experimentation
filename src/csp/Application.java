@@ -30,8 +30,8 @@ public class Application {
 
         CSP csp = new CSP(myNetwork);
         System.out.println("Searching solution...");
-        Assignment sol = csp.searchSolution();
-        if (sol == null) 
+        boolean sol = csp.searchSolutionFC();
+        if (sol == false) 
             System.out.println("Aucune solution trouvé.");
         else {
             System.out.println("Solution : " + sol);

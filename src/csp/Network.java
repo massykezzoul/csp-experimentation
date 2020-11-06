@@ -199,7 +199,16 @@ public class Network {
 		for(Constraint c : constraints)
 			if(c.getVars().contains(var)) selected.add(c);
 		return selected;											
-	}																		
+	}	
+	
+	public Map<String,List<Object>> get()
+	{
+		return varDom;
+	}
+	public void set(Map<String,List<Object>> varDom)
+	{
+		this.varDom=new HashMap<String,List<Object>>(varDom);
+	}
 	
 		
 	/* (non-Javadoc)

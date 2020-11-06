@@ -101,6 +101,10 @@ public abstract class Constraint {
 	 * @return vrai ssi l'assignation viole la contrainte 
 	 */
 	public abstract boolean violation(Assignment a);
+	public  boolean exist(List<Object> tuple)
+	{
+		return true;
+	}
 	
 	
 	/* (non-Javadoc)
