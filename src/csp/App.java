@@ -34,7 +34,7 @@ public class App {
 
         for (int i = 0; i < nb_test; i++) {
             startCpuTime = thread.getCurrentThreadCpuTime();
-            result = (csp.searchSolutionFC() != null);
+            result = (csp.searchSolution() != null);
             temps.add(thread.getCurrentThreadCpuTime() - startCpuTime);
         }
         double avg = temps.stream()
@@ -61,7 +61,7 @@ public class App {
         if (!benchmark.substring(benchmark.length() - 1).equals("/"))
             benchmark += "/";
         
-        int durete_min = 0, durete_max = 98;
+        int durete_min = 1, durete_max = 99;
         int instance_min = 1, instance_max = 10;
 
         System.out.println("# durete temps taux_vrai");
@@ -74,7 +74,7 @@ public class App {
                 somme += (double)r.get(0);
                 nb_true += ((int)r.get(1))==0?0:1;
             }
-            System.out.println(d+" "+somme/instance_max+" "+nb_true/instance_max*100);
+            System.out.println(d+" "+somme/instance_max+" "+nb_true/instance_max*1000);
         }
     }
 }   
