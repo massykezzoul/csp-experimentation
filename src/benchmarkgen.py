@@ -29,6 +29,9 @@ def durete(d, t):
 def nb_tuple(dur,d):
     return(d*d)*(1-dur)
 
+def tuple(d, durete):
+    return d*d*(1 - durete)
+
 def cspgen(n, d, c, t, file):
     # Génère une instance de CSP
     cmd = "./{} {} {} {} {} 1 > ./{}/{} 2> /dev/null".format(executable, n, d, c, t, dir_return, file)
