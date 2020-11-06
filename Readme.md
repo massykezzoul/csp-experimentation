@@ -34,6 +34,7 @@ Le projet est suivi d'un travail d'évaluation complet des effets des différent
   + src/vanilla/: code source d'un CSP sans optimisation. 
   + src/max-card/:
   + src/arc-consistance/:
+- bin/: Dossier contenant les fichier binaires et executables
 - rapport/: Dossier contenant le rapport au format LaTeX et PDF
 - networks/: Dossier contenant les divers jeux d'essais
 - info/: Dossier contenant divers informations sur le déroulement du projet
@@ -43,7 +44,6 @@ Le projet est suivi d'un travail d'évaluation complet des effets des différent
 ### Éxecution des programmes
 
 ### Géneration de CSB binaire
-
 
 
 ## Auteurs
