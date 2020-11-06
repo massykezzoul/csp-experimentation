@@ -7,9 +7,9 @@ import os
     usage : python3 benchmarkgen executable chemin_vers_sortie
 """
 
-n = 35 # nombre de variables
+n = 10 # nombre de variables
 d = 17 # taille des domaines
-c = 249 # nombre de contrainte   
+c = 20 # nombre de contrainte   
 tmax, tmin = 288, 1# nombre de tuples (reduire de 3 à chaque étape jusqu'a 178)
 
 if len(sys.argv) != 3 :
@@ -26,6 +26,8 @@ if dir_return[-1] == '/':
 
 def durete(d, t):
     return ((d*d) - t)/(d*d)
+def nb_tuple(dur,d):
+    return(d*d)*(1-dur)
 
 def cspgen(n, d, c, t, file):
     # Génère une instance de CSP
@@ -35,8 +37,10 @@ def cspgen(n, d, c, t, file):
 
 def genall():
     nombre_instance = 10
-    for t in range(tmax, tmin - 1, -3): 
-        dur = int(durete(d,t) * 100)
+    for dur in range(1, 100, 1): 
+        t = int (nb_tuple(dur/100,d))
+        if t == 0 :
+            t=t+1
         for i in range(nombre_instance): 
             file_name = "d{}-i{}.txt".format(dur, i+1)
             if cspgen(n, d, c, t, file_name):
