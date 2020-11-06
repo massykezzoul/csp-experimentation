@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadMXBean;
 import java.util.ArrayList;
@@ -65,7 +64,7 @@ public class App {
         int durete_min = 0, durete_max = 98;
         int instance_min = 1, instance_max = 10;
 
-        System.out.println("durete temps taux_vrai");
+        System.out.println("# durete temps taux_vrai");
         for (int d = durete_min; d <= durete_max; d++) {
             double somme = 0;
             int nb_true = 0;
