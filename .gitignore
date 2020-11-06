@@ -6,3 +6,5 @@ rapport/**.aux
 rapport/**.log
 rapport/**.out
 rapport/**.toc
+
+networks/d*.txt
