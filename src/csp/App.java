@@ -34,7 +34,7 @@ public class App {
 
         for (int i = 0; i < nb_test; i++) {
             startCpuTime = thread.getCurrentThreadCpuTime();
-            result = (csp.searchSolution() != null);
+            result = (csp.searchSolutionFC() != null);
             temps.add(thread.getCurrentThreadCpuTime() - startCpuTime);
         }
         double avg = temps.stream()
@@ -74,7 +74,7 @@ public class App {
                 somme += (double)r.get(0);
                 nb_true += ((int)r.get(1))==0?0:1;
             }
-            System.out.println(d+" "+somme/instance_max+" "+nb_true/instance_max*1000);
+            System.out.println(d+" "+somme/instance_max+" "+nb_true/instance_max*100);
         }
     }
 }   
