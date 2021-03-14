@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Ce projet s'attache à mettre en place des optimisations au resolveur de CSP.
+Ce projet s'attache à mettre en place des optimisations au resolveur de [CSP](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem).
 
 Il est demandé de réaliser au moins une des optimisations suivantes : 
 - heuristique d'assignation des variables, 
@@ -14,18 +14,10 @@ Le projet est suivi d'un travail d'évaluation complet des effets des différent
 
 ## Les Optimisations implémenter
 
-### Heuristique d'assignation des variables
-
-À implèmenter
-
-### Test de viol de contraintes
-
-À implèmenter
-
-### Arc-consistance
-
-À implèmenter
-
+- Heuristique d'assignation des variables
+- Test de viol de contraintes
+- Arc-consistance
+- 
 ## Fonctionnemnet du code
 
 ### gnuplot
@@ -50,9 +42,7 @@ pour éxecuter le programme il suffit de :
 + Ajouter les droits d'éxecutions au programme exec.sh
 + Puis l'éxecuter `exec.sh`
 
-Le script génère un benchmark puis éxecuter l'algorithme de résolution sur ce dernier et gnuplot sur le resultat. Vous aurez donc à la fin un fichier graphe.png qui contient la courbe du temps d'éxecution ainsi que le tracé de transition de phase.
-
-### Géneration de CSB binaire
+Le script génère un benchmark puis éxecuter l'algorithme de résolution sur ce dernier et [gnuplot](https://en.wikipedia.org/wiki/Gnuplot) sur le resultat. Vous aurez donc à la fin un fichier graphe.png qui contient la courbe du temps d'éxecution ainsi que le tracé de transition de phase.
 
 ## Auteurs
 
